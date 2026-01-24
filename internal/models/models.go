@@ -18,3 +18,14 @@ type Message struct {
 	Text      string    `gorm:"type:text;size:5000;not null" json:"text"`
 	CreatedAt time.Time `gorm:"autoCreateTime" json:"created_at"`
 }
+
+type User struct {
+	ID         uint    `gorm:"primaryKey" json:"id"`
+	FirstName  string  `gorm:"not null" json:"first_name"`
+	LastName   string  `gorm:"not null" json:"last_name"`
+	SecondName *string `json:"second_name,omitempty"`
+	Password   string  `gorm:"not null" json:"-"`
+
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
+}
